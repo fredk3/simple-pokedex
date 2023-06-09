@@ -3,7 +3,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "pages:build": "npx @cloudflare/next-on-pages --experimental-minify",
+    "pages:build-deploy": "pnpm run pages:build && pnpm run pages:deploy",
+    "pages:deploy": "wrangler pages deploy .vercel/output/static",
+    "pages:watch": "npx @cloudflare/next-on-pages --watch",
+    "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat"
   },
   "dependencies": {
     "next": "canary",
