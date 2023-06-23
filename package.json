@@ -11,7 +11,7 @@
     "pages:dev": "npx wrangler pages dev .vercel/output/static --compatibility-flag=nodejs_compat"
   },
   "dependencies": {
-    "next": "canary",
+    "next": "13.4.8-canary.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
