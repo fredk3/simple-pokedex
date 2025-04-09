@@ -7,8 +7,8 @@ export default function RootLayout({ children }) {
   return (
     <html>
       <head />
-      <body suppressHydrationWarning className="dark">
-        <main className="text-white flex min-h-screen flex-col items-center justify-between p-4 pt-24 md:p-24 h-screen">
+      <body suppressHydrationWarning className="dark h-screen">
+        <main className="text-white flex min-h-screen flex-col items-center justify-between p-4 pt-24 md:p-24 h-full bg-black">
           <div className="z-10 w-full h-full max-w-5xl items-center justify-between font-mono text-sm">
             <Link
               href={`/`}
