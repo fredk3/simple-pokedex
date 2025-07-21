@@ -49,7 +49,7 @@ async function PokemonList(props: { name: string; wait: boolean }) {
   if (props.wait) {
     await sleep(2000);
   }
-  const pokemons = await fetch(`https://beta.pokeapi.co/graphql/v1beta`, {
+  const pokemons = await fetch(`https://graphql.pokeapi.co/v1beta2`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
