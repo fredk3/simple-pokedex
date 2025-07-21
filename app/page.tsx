@@ -55,7 +55,7 @@ async function PokemonList(props: { name: string; wait: boolean }) {
     body: JSON.stringify({
       query: /* GraphQL */ `
         query ($name: String!) {
-          pokemons: pokemon_v2_pokemon(
+          pokemons: pokemon(
             where: { name: { _ilike: $name } }
             limit: 20
           ) {
