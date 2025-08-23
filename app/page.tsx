@@ -7,6 +7,7 @@ type Pokemon = {
   id: number;
 };
 
+// this is a test
 export function generateMetadata(props: {
   searchParams?: Record<string, string | undefined>;
 }) {
