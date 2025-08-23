@@ -12,7 +12,7 @@ export function generateMetadata(props: {
 }) {
   const query = props.searchParams?.search;
   return {
-    title: query ? `Searching for ${query}` : "Search page",
+    title: query ? `Searching for ${query}...` : "Search page",
   };
 }
 export default function Page(props: {
