@@ -1,8 +1,8 @@
 import "./global.css";
 import Link from "next/link";
 
-export const runtime = "edge";
 
+// another one
 export default function RootLayout({ children }) {
   return (
     <html>
