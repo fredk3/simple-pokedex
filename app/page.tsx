@@ -7,23 +7,26 @@ type Pokemon = {
 	id: number;
 };
 
-export function generateMetadata(props: {
-	searchParams?: Record<string, string | undefined>;
-}) {
-	const query = props.searchParams?.search;
+export async function generateMetadata(
+    props: {
+        searchParams?: Promise<Record<string, string | undefined>>;
+    }
+) {
+	const query = (await props.searchParams)?.search;
 	return {
 		title: query ? `Searching for ${query}` : "Search page",
 	};
 }
-export default function Page(props: {
-	searchParams?: Record<string, string | undefined>;
-}) {
-	const keyString = `search=${props.searchParams?.search}&wait=${props.searchParams?.wait}`;
+export default async function Page(
+    props: {
+        searchParams?: Promise<Record<string, string | undefined>>;
+    }
+) {
+	const keyString = `search=${(await props.searchParams)?.search}&wait=${(await props.searchParams)?.wait}`;
 	return (
-		<section className="flex flex-col">
-			<SearchInput />
-
-			{props.searchParams?.search ? (
+        <section className="flex flex-col">
+            <SearchInput />
+            {(await props.searchParams)?.search ? (
 				<React.Suspense
 					key={keyString}
 					fallback={
@@ -36,8 +39,8 @@ export default function Page(props: {
 					}
 				>
 					<PokemonList
-						name={props.searchParams?.search}
-						wait={props.searchParams?.wait === "on"}
+						name={(await props.searchParams)?.search}
+						wait={(await props.searchParams)?.wait === "on"}
 					/>
 				</React.Suspense>
 			) : (
@@ -47,8 +50,8 @@ export default function Page(props: {
 					<hr className="h-px w-20 text-gray-100/20" />
 				</div>
 			)}
-		</section>
-	);
+        </section>
+    );
 }
 
 async function PokemonList(props: { name: string; wait: boolean }) {
@@ -126,7 +129,6 @@ function PokemonCard({ pokemon }: { pokemon: Pokemon }) {
 				</dd>
 			</div>
 
-			{/*  eslint-disable-next-line @next/next/no-img-element  */}
 			<img
 				width={200}
 				height={200}
