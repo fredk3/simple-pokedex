@@ -1,10 +1,9 @@
 import "./global.css";
 import Link from "next/link";
 
-// another one
 export default function RootLayout({ children }) {
 	return (
-		<html>
+		<html lang="en">
 			<head />
 			<body suppressHydrationWarning className="dark min-h-screen">
 				<main className="text-white flex min-h-screen flex-col items-center justify-between p-4 pt-24 md:p-24 h-full bg-black">
