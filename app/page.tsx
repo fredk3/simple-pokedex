@@ -23,7 +23,7 @@ export default function Page(props: {
 		<section className="flex flex-col">
 			<SearchInput />
 
-			{props.searchParams?.search && (
+			{props.searchParams?.search ? (
 				<React.Suspense
 					key={keyString}
 					fallback={
@@ -40,6 +40,12 @@ export default function Page(props: {
 						wait={props.searchParams?.wait === "on"}
 					/>
 				</React.Suspense>
+			) : (
+				<div className="col-span-full py-8 px-4 flex items-center gap-8 justify-center">
+					<hr className="h-px w-20 text-gray-100/20" />
+					<p className="text-center flex-none italic">Search for a pokemon</p>
+					<hr className="h-px w-20 text-gray-100/20" />
+				</div>
 			)}
 		</section>
 	);
